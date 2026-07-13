@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#17372a" />
+    <meta
+      name="description"
+      content="Рабочая web-версия Telegram-бота для учёта расходов: добавление записей, категории и статистика."
+    />
+    <title>Расходы — учёт без таблиц</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="../../#works" aria-label="Вернуться в портфолио">
+          <span class="brand-mark">Р</span>
+          <span>расходы</span>
+        </a>
+
+        <nav class="app-nav" aria-label="Разделы приложения">
+          <button class="nav-button active" type="button" data-view="dashboard">
+            <span aria-hidden="true">⌁</span>
+            Операции
+          </button>
+          <button class="nav-button" type="button" data-view="categories">
+            <span aria-hidden="true">#</span>
+            Категории
+          </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <span class="project-status"><i></i> Данные сохраняются</span>
+          <a href="../../#works">← Портфолио</a>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <button class="mobile-brand" type="button" data-view="dashboard" aria-label="Операции">
+            <span class="brand-mark">Р</span>
+            <span>расходы</span>
+          </button>
+          <div class="topbar-actions">
+            <button class="text-button" id="undo-button" type="button" disabled>Отменить удаление</button>
+            <button class="icon-button" id="reset-button" type="button" aria-label="Восстановить исходные данные" title="Восстановить исходные данные">↻</button>
+          </div>
+        </header>
+
+        <div class="content">
+          <section class="view active" data-view-panel="dashboard">
+            <div class="page-heading">
+              <div>
+                <p class="eyebrow">Личные финансы</p>
+                <h1>Расходы</h1>
+              </div>
+              <div class="period-control" aria-label="Период статистики">
+                <button type="button" data-period="today">Сегодня</button>
+                <button class="active" type="button" data-period="month">Месяц</button>
+                <button type="button" data-period="all">Всё время</button>
+              </div>
+            </div>
+
+            <form class="quick-add" id="expense-form">
+              <label for="expense-input">Новая запись</label>
+              <div class="quick-add-row">
+                <input id="expense-input" name="expense" type="text" placeholder="кофе 300" autocomplete="off" />
+                <button type="submit">Добавить</button>
+              </div>
+              <p class="form-message" id="form-message" aria-live="polite"></p>
+            </form>
+
+            <section class="stats" aria-label="Краткая статистика">
+              <article>
+                <span>Всего</span>
+                <strong id="total-value">0 ₽</strong>
+              </article>
+              <article>
+                <span>Операций</span>
+                <strong id="expense-count">0</strong>
+              </article>
+              <article>
+                <span>Средний расход</span>
+                <strong id="average-value">0 ₽</strong>
+              </article>
+            </section>
+
+            <div class="dashboard-grid">
+              <section class="panel operations-panel">
+                <div class="panel-heading">
+                  <div>
+                    <p class="eyebrow">История</p>
+                    <h2>Последние операции</h2>
+                  </div>
+                  <span id="result-count">0 записей</span>
+                </div>
+                <div class="expense-list" id="expense-list"></div>
+              </section>
+
+              <section class="panel chart-panel">
+                <div class="panel-heading">
+                  <div>
+                    <p class="eyebrow">Структура</p>
+                    <h2>По категориям</h2>
+                  </div>
+                </div>
+                <div class="category-chart" id="category-chart"></div>
+              </section>
+            </div>
+          </section>
+
+          <section class="view" data-view-panel="categories" hidden>
+            <div class="page-heading">
+              <div>
+                <p class="eyebrow">Настройка</p>
+                <h1>Категории</h1>
+              </div>
+              <button class="primary-action" id="open-category-dialog" type="button">+ Добавить категорию</button>
+            </div>
+            <section class="panel categories-panel">
+              <div class="category-list" id="category-list"></div>
+            </section>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <dialog class="modal" id="category-picker" aria-labelledby="category-picker-title">
+      <div class="modal-head">
+        <div>
+          <p class="eyebrow">Новая операция</p>
+          <h2 id="category-picker-title">Выберите категорию</h2>
+        </div>
+        <button class="modal-close" type="button" data-close-dialog aria-label="Закрыть">×</button>
+      </div>
+      <div class="pending-expense" id="pending-expense"></div>
+      <div class="category-picker-grid" id="category-picker-grid"></div>
+    </dialog>
+
+    <dialog class="modal small" id="new-category-dialog" aria-labelledby="new-category-title">
+      <div class="modal-head">
+        <div>
+          <p class="eyebrow">Категории</p>
+          <h2 id="new-category-title">Новая категория</h2>
+        </div>
+        <button class="modal-close" type="button" data-close-dialog aria-label="Закрыть">×</button>
+      </div>
+      <form id="category-form" class="category-form">
+        <label for="category-name">Название</label>
+        <input id="category-name" type="text" placeholder="Например, Питомцы" maxlength="30" />
+        <label for="category-icon">Символ</label>
+        <input id="category-icon" type="text" placeholder="●" maxlength="3" />
+        <button type="submit">Добавить</button>
+      </form>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>

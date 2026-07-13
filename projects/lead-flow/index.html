@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#4f220d" />
+    <meta
+      name="description"
+      content="Рабочая автоматизация заявок с серверной проверкой, API и сохранением в SQLite."
+    />
+    <title>Lead Flow — автоматизация заявок</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <a class="brand" href="../../#works">
+        <span class="brand-mark">LF</span>
+        <span>Lead Flow</span>
+      </a>
+      <div class="api-status" id="api-status"><i></i><span>Проверка API</span></div>
+      <a class="back-link" href="../../#works">← Портфолио</a>
+    </header>
+
+    <main class="main">
+      <section class="page-head">
+        <div>
+          <p class="eyebrow">Рабочая автоматизация</p>
+          <h1>Заявка от формы<br />до базы данных.</h1>
+        </div>
+        <p>Каждая отправка проходит серверную проверку, получает номер и сохраняется в SQLite. Личные данные в публичном журнале автоматически маскируются.</p>
+      </section>
+
+      <div class="automation-layout">
+        <section class="form-panel">
+          <div class="panel-head">
+            <span>01</span>
+            <div><p class="eyebrow">Входящие данные</p><h2>Новая заявка</h2></div>
+          </div>
+          <form id="lead-form">
+            <label for="lead-name">Имя</label>
+            <input id="lead-name" name="name" type="text" maxlength="60" placeholder="Даниил" autocomplete="name" required />
+
+            <label for="lead-contact">Контакт</label>
+            <input id="lead-contact" name="contact" type="text" maxlength="80" placeholder="@username или телефон" autocomplete="tel" required />
+
+            <label for="lead-service">Услуга</label>
+            <select id="lead-service" name="service">
+              <option>Лендинг</option>
+              <option>CRM</option>
+              <option selected>Автоматизация</option>
+              <option>Telegram-бот</option>
+              <option>AI-контент</option>
+              <option>Другое</option>
+            </select>
+
+            <button id="submit-button" type="submit">Отправить в автоматизацию</button>
+            <p class="form-note">Тестовые записи хранятся до 30 дней. Личные данные в журнале скрыты.</p>
+            <p class="form-message" id="form-message" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <section class="flow-panel">
+          <div class="panel-head">
+            <span>02</span>
+            <div><p class="eyebrow">Серверный сценарий</p><h2>Обработка</h2></div>
+          </div>
+          <div class="flow-steps" id="flow-steps">
+            <article data-step="0"><span>1</span><div><strong>Приём данных</strong><small>POST /leads</small></div><i></i></article>
+            <article data-step="1"><span>2</span><div><strong>Проверка полей</strong><small>имя, контакт, услуга</small></div><i></i></article>
+            <article data-step="2"><span>3</span><div><strong>Запись в SQLite</strong><small>серверная база данных</small></div><i></i></article>
+            <article data-step="3"><span>4</span><div><strong>Номер заявки</strong><small>подтверждение клиенту</small></div><i></i></article>
+          </div>
+          <div class="result-box" id="result-box">
+            <span>Последний результат</span>
+            <strong id="result-id">Ожидает заявку</strong>
+            <p id="result-copy">Сценарий готов к обработке.</p>
+          </div>
+        </section>
+
+        <section class="journal-panel">
+          <div class="panel-head journal-head">
+            <span>03</span>
+            <div><p class="eyebrow">SQLite</p><h2>Журнал заявок</h2></div>
+            <button id="refresh-button" type="button" aria-label="Обновить журнал" title="Обновить журнал">↻</button>
+          </div>
+          <div class="lead-list" id="lead-list">
+            <div class="empty-state">Подключение к базе...</div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -8,6 +8,8 @@ const caseTitle = document.querySelector("#case-title");
 const caseSummary = document.querySelector("#case-summary");
 const caseMetrics = document.querySelector("#case-metrics");
 const caseList = document.querySelector("#case-list");
+const caseProjectLink = document.querySelector("#case-project-link");
+const caseContactLink = document.querySelector("#case-contact-link");
 const caseCloseButtons = document.querySelectorAll(".case-close, .case-secondary-close");
 
 const caseData = {
@@ -29,6 +31,8 @@ const caseData = {
     visual: "image",
     image: "assets/roofing-landing-hero.jpg",
     alt: "Первый экран лендинга кровельной компании",
+    projectUrl: "https://xn----8sbebb7beezgo4b1c0g.xn--p1ai/",
+    projectLabel: "Открыть живой сайт",
   },
   "ai-video": {
     type: "AI-видео · короткий контент",
@@ -69,93 +73,63 @@ const caseData = {
     alt: "Примеры баннеров и презентаций",
   },
   "lawyer-crm": {
-    type: "CRM · юридические услуги",
-    title: "Система для работы юриста",
+    type: "CRM · рабочий проект",
+    title: "Legato CRM для юриста",
     summary:
-      "Единое рабочее пространство для клиентов, дел, документов, задач и ближайших сроков. Нужная информация находится без переписок и разрозненных таблиц.",
+      "Опубликованная CRM с клиентами, делами, календарём и настройками. Интерфейс работает в браузере, сохраняет изменения и доступен по отдельной ссылке.",
     metrics: [
-      ["1 база", "клиенты и дела"],
-      ["Сроки", "задачи и напоминания"],
+      ["4 раздела", "клиенты, дела, календарь"],
+      ["localStorage", "данные сохраняются"],
     ],
     list: [
-      "Карточка клиента и история обращения",
-      "Статусы дел и ответственные задачи",
-      "Хранение ссылок на документы",
-      "Фильтры по срокам и этапам работы",
+      "Добавление, удаление и поиск клиентов",
+      "Статусы дел и живые счётчики",
+      "Рабочий календарь с событиями",
+      "Адаптивная версия для телефона",
     ],
     visual: "image",
     image: "assets/crm-lawyer-preview.png",
     alt: "Интерфейс CRM-системы для юриста",
+    projectUrl: "https://wm669vjvr2-ui.github.io/legato-crm/",
+    projectLabel: "Открыть рабочую CRM",
   },
-  "lead-automation": {
-    type: "Автоматизация · заявки",
-    title: "Заявка обрабатывается сама",
+  "expense-bot": {
+    type: "Telegram-бот · рабочий проект",
+    title: "Учёт расходов без таблиц",
     summary:
-      "Демонстрация простой связки: форма принимает контакт, система записывает клиента в CRM, отправляет уведомление менеджеру и подтверждает обращение клиенту.",
+      "Настоящий Telegram-бот на aiogram и SQLite: понимает сообщения вроде «кофе 300», предлагает категорию и сохраняет операцию. По ссылке открывается рабочая web-версия той же логики.",
     metrics: [
-      ["4 шага", "в одном сценарии"],
-      ["Без копирования", "данные переносятся сами"],
+      ["Aiogram 3", "логика Telegram-бота"],
+      ["SQLite + Stars", "база и оплата"],
     ],
     list: [
-      "Приём заявки с сайта или формы",
-      "Создание карточки клиента в CRM",
-      "Уведомление менеджера в Telegram",
-      "Автоматический ответ клиенту",
+      "Разбор сумм цифрами и словами",
+      "Свои категории и сохранение расходов",
+      "Статистика за день, месяц и всё время",
+      "Отмена последней записи и подписка",
     ],
-    visual: "automation",
+    visual: "iframe",
+    projectUrl: "projects/expenses/",
+    projectLabel: "Открыть рабочую web-версию",
   },
-  "site-pack": {
-    type: "Сайты · упаковка услуг",
-    title: "Лендинги и мини-сайты",
+  "lead-flow": {
+    type: "Автоматизация · серверный проект",
+    title: "Заявки: форма → API → SQLite",
     summary:
-      "Несколько направлений для экспертов, локального бизнеса и небольших услуг: от одной продающей страницы до компактного сайта с несколькими разделами.",
+      "Рабочая автоматизация на отдельном серверном API. Форма отправляет данные, сервер проверяет поля, создаёт номер заявки и сохраняет запись в SQLite. Публичный журнал получает уже замаскированный контакт.",
     metrics: [
-      ["От 1 страницы", "быстрый запуск"],
-      ["7–10 тыс.", "стоимость лендинга"],
+      ["POST API", "настоящая серверная обработка"],
+      ["SQLite", "заявки сохраняются в базе"],
     ],
     list: [
-      "Структура предложения и тексты",
-      "Дизайн под нишу и аудиторию",
-      "Адаптация под телефон",
-      "Кнопки связи и базовые анимации",
+      "Проверка и нормализация входящих данных",
+      "Уникальный номер для каждой заявки",
+      "Публичный журнал с защитой личных данных",
+      "Ограничение частоты и хранение до 30 дней",
     ],
-    visual: "image",
-    image: "assets/site-pack-preview.png",
-    alt: "Примеры лендингов и мини-сайтов",
-  },
-  "support-bot": {
-    type: "Telegram-бот · демо-сценарий",
-    title: "Техподдержка без ожидания",
-    summary:
-      "Бот отвечает на типовые вопросы, проверяет статус заказа и передаёт сложный диалог оператору вместе с историей переписки.",
-    metrics: [
-      ["24/7", "первый ответ клиенту"],
-      ["1 клик", "передача оператору"],
-    ],
-    list: [
-      "Ответы на частые вопросы",
-      "Проверка заказа по номеру",
-      "Сбор контакта и причины обращения",
-      "Передача диалога живому сотруднику",
-    ],
-    visual: "support",
-  },
-  "sales-crm": {
-    type: "Мини-CRM · демо-интерфейс",
-    title: "Учёт заявок для небольшой команды",
-    summary:
-      "Простой экран без перегруженных настроек: новые обращения, текущая работа и оплаченные заказы видны в одной воронке.",
-    metrics: [
-      ["3 статуса", "понятная воронка"],
-      ["1 экран", "все активные заявки"],
-    ],
-    list: [
-      "Карточки клиентов и услуг",
-      "Сумма, источник и следующий контакт",
-      "Перетаскивание по этапам воронки",
-      "Напоминания о забытых заявках",
-    ],
-    visual: "crm",
+    visual: "iframe",
+    projectUrl: "projects/lead-flow/",
+    projectLabel: "Открыть автоматизацию",
   },
 };
 
@@ -232,81 +206,19 @@ if (ticker) {
 }
 
 function renderCaseVisual(item) {
-  if (item.visual === "automation") {
-    return `
-      <div class="case-demo automation-demo">
-        <div class="demo-toolbar">
-          <strong>Новая заявка #184</strong>
-          <span data-demo-status>готово к запуску</span>
-        </div>
-        <div class="flow-demo">
-          <div class="flow-node" data-flow-node><small>Шаг 1</small><strong>Форма сайта</strong></div>
-          <div class="flow-node" data-flow-node><small>Шаг 2</small><strong>Карточка в CRM</strong></div>
-          <div class="flow-node" data-flow-node><small>Шаг 3</small><strong>Telegram менеджеру</strong></div>
-          <div class="flow-node" data-flow-node><small>Шаг 4</small><strong>Ответ клиенту</strong></div>
-        </div>
-        <div class="demo-console">
-          <p data-demo-log>Сценарий готов принять новую заявку.</p>
-          <button class="demo-run" type="button" data-run-automation>Запустить демо</button>
-        </div>
-      </div>`;
-  }
-
-  if (item.visual === "support") {
-    return `
-      <div class="case-demo support-demo">
-        <div class="support-header">
-          <strong>Поддержка магазина</strong>
-          <span>онлайн</span>
-        </div>
-        <div class="support-chat">
-          <div class="support-message">Здравствуйте! Когда будет готов заказ №184?</div>
-          <div class="support-message bot">Заказ №184 уже готов. Его можно забрать сегодня до 20:00.</div>
-          <div class="support-message">Можно поменять адрес доставки?</div>
-          <div class="support-message bot pending" data-bot-reply>Передаю вопрос оператору. Он уже видит номер заказа и всю переписку.</div>
-        </div>
-        <div class="support-compose">
-          <span>Сложный вопрос клиента</span>
-          <button class="demo-run" type="button" data-run-bot>Показать ответ</button>
-        </div>
-      </div>`;
-  }
-
-  if (item.visual === "crm") {
-    return `
-      <div class="case-demo crm-demo">
-        <div class="crm-demo-header"><strong>CRM · входящие заявки</strong><span>+ новая заявка</span></div>
-        <div class="crm-dashboard">
-          <div class="crm-kpis">
-            <div><strong>18</strong><span>новых обращений</span></div>
-            <div><strong>7</strong><span>сейчас в работе</span></div>
-            <div><strong>4</strong><span>оплачено за неделю</span></div>
-          </div>
-          <div class="crm-pipeline">
-            <div class="crm-column"><b>НОВЫЕ · 3</b><div class="crm-lead">Анна · Лендинг<span>Instagram · 09:40</span></div><div class="crm-lead">Роман · Бот<span>Telegram · 10:15</span></div></div>
-            <div class="crm-column"><b>В РАБОТЕ · 2</b><div class="crm-lead">Игорь · Автоматизация<span>Смета отправлена</span></div><div class="crm-lead">Мария · Визуалы<span>Созвон сегодня</span></div></div>
-            <div class="crm-column"><b>ОПЛАЧЕНО · 2</b><div class="crm-lead">Roof Pro · Сайт<span>Запуск 16 июля</span></div><div class="crm-lead">Алексей · Презентация<span>Готово</span></div></div>
-          </div>
-        </div>
-      </div>`;
+  if (item.visual === "iframe") {
+    return `<div class="case-live-frame"><iframe src="${item.projectUrl}" title="Рабочая версия проекта ${item.title}" loading="lazy"></iframe></div>`;
   }
 
   return `<div class="case-image-frame"><img src="${item.image}" alt="${item.alt}" /></div>`;
 }
 
 let lastCaseTrigger = null;
-let demoTimers = [];
-
-function clearDemoTimers() {
-  demoTimers.forEach((timer) => window.clearTimeout(timer));
-  demoTimers = [];
-}
 
 function openCase(caseId, trigger) {
   const item = caseData[caseId];
   if (!item || !caseDialog) return;
 
-  clearDemoTimers();
   lastCaseTrigger = trigger;
   caseType.textContent = item.type;
   caseTitle.textContent = item.title;
@@ -316,6 +228,11 @@ function openCase(caseId, trigger) {
     .join("");
   caseList.innerHTML = item.list.map((text) => `<li>${text}</li>`).join("");
   caseVisual.innerHTML = renderCaseVisual(item);
+  caseProjectLink.hidden = !item.projectUrl;
+  caseProjectLink.href = item.projectUrl || "#";
+  caseProjectLink.textContent = item.projectLabel || "Открыть проект";
+  caseContactLink.classList.toggle("primary", !item.projectUrl);
+  caseContactLink.classList.toggle("ghost", Boolean(item.projectUrl));
   document.body.classList.add("case-open");
   caseDialog.showModal();
   caseDialog.querySelector(".case-close").focus();
@@ -323,7 +240,6 @@ function openCase(caseId, trigger) {
 
 function closeCase() {
   if (!caseDialog?.open) return;
-  clearDemoTimers();
   caseDialog.close();
 }
 
@@ -340,49 +256,6 @@ caseDialog?.addEventListener("click", (event) => {
 caseDialog?.addEventListener("close", () => {
   document.body.classList.remove("case-open");
   lastCaseTrigger?.focus();
-});
-
-caseVisual?.addEventListener("click", (event) => {
-  const automationButton = event.target.closest("[data-run-automation]");
-  if (automationButton) {
-    const nodes = [...caseVisual.querySelectorAll("[data-flow-node]")];
-    const status = caseVisual.querySelector("[data-demo-status]");
-    const log = caseVisual.querySelector("[data-demo-log]");
-    const messages = [
-      "Заявка получена с сайта.",
-      "Карточка клиента создана в CRM.",
-      "Менеджер получил уведомление в Telegram.",
-      "Клиенту отправлено подтверждение. Сценарий завершён.",
-    ];
-
-    clearDemoTimers();
-    nodes.forEach((node) => node.classList.remove("is-complete"));
-    automationButton.disabled = true;
-    automationButton.textContent = "Выполняется...";
-    status.textContent = "обработка";
-
-    nodes.forEach((node, index) => {
-      demoTimers.push(
-        window.setTimeout(() => {
-          node.classList.add("is-complete");
-          log.textContent = messages[index];
-
-          if (index === nodes.length - 1) {
-            status.textContent = "выполнено";
-            automationButton.disabled = false;
-            automationButton.textContent = "Запустить ещё раз";
-          }
-        }, 480 * (index + 1))
-      );
-    });
-  }
-
-  const botButton = event.target.closest("[data-run-bot]");
-  if (botButton) {
-    caseVisual.querySelector("[data-bot-reply]")?.classList.add("is-visible");
-    botButton.textContent = "Ответ показан";
-    botButton.disabled = true;
-  }
 });
 
 animateShadow();
