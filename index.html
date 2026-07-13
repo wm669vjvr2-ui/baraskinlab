@@ -109,48 +109,93 @@
           <h2>Сначала покажу, как это выглядит. Потом доведём до результата.</h2>
         </div>
         <div class="work-grid">
-          <article class="work-item reveal">
+          <button class="work-item reveal" type="button" data-case="roofing">
             <img src="assets/portfolio-page-3.png" alt="Лендинг для кровельной компании" />
-            <div>
+            <div class="work-copy">
               <p>Лендинг</p>
               <h3>Кровельная компания</h3>
+              <span class="work-open">Смотреть кейс</span>
             </div>
-          </article>
-          <article class="work-item reveal">
+          </button>
+          <button class="work-item reveal" type="button" data-case="ai-video">
             <img src="assets/portfolio-page-4.png" alt="AI-видео и короткий контент" />
-            <div>
+            <div class="work-copy">
               <p>AI-видео</p>
               <h3>Короткий контент</h3>
+              <span class="work-open">Смотреть кейс</span>
             </div>
-          </article>
-          <article class="work-item reveal">
+          </button>
+          <button class="work-item reveal" type="button" data-case="visuals">
             <img src="assets/portfolio-page-5.png" alt="Визуалы, баннеры и презентации" />
-            <div>
+            <div class="work-copy">
               <p>Визуалы</p>
               <h3>Баннеры и презентации</h3>
+              <span class="work-open">Смотреть кейс</span>
             </div>
-          </article>
-          <article class="work-item reveal">
+          </button>
+          <button class="work-item reveal" type="button" data-case="lawyer-crm">
             <img src="assets/crm-lawyer-preview.png" alt="CRM-система для юриста" />
-            <div>
+            <div class="work-copy">
               <p>CRM</p>
               <h3>Система для юриста</h3>
+              <span class="work-open">Смотреть кейс</span>
             </div>
-          </article>
-          <article class="work-item reveal">
+          </button>
+          <button class="work-item reveal" type="button" data-case="lead-automation">
             <img src="assets/automation-flow-preview.png" alt="Автоматизация заявок и уведомлений" />
-            <div>
+            <div class="work-copy">
               <p>Автоматизация</p>
               <h3>Заявки без ручной рутины</h3>
+              <span class="work-open">Запустить демо</span>
             </div>
-          </article>
-          <article class="work-item reveal">
+          </button>
+          <button class="work-item reveal" type="button" data-case="site-pack">
             <img src="assets/site-pack-preview.png" alt="Примеры сайтов и упаковки услуг" />
-            <div>
+            <div class="work-copy">
               <p>Сайты</p>
               <h3>Лендинги и мини-сайты</h3>
+              <span class="work-open">Смотреть кейс</span>
             </div>
-          </article>
+          </button>
+          <button class="work-item reveal" type="button" data-case="support-bot">
+            <div class="work-preview bot-preview" aria-hidden="true">
+              <div class="bot-preview-head">
+                <span class="bot-avatar">B</span>
+                <span><b>Поддержка 24/7</b><small>бот отвечает</small></span>
+              </div>
+              <div class="bot-bubble incoming">Когда будет готов заказ?</div>
+              <div class="bot-bubble outgoing">Заказ №184 готов. Можно забрать сегодня до 20:00.</div>
+              <div class="bot-status">Передача оператору: 1 клик</div>
+            </div>
+            <div class="work-copy">
+              <p>Telegram-бот</p>
+              <h3>Техподдержка клиентов</h3>
+              <span class="work-open">Попробовать сценарий</span>
+            </div>
+          </button>
+          <button class="work-item reveal" type="button" data-case="sales-crm">
+            <div class="work-preview crm-preview" aria-hidden="true">
+              <div class="crm-preview-head">
+                <b>Заявки</b>
+                <span>+ новая</span>
+              </div>
+              <div class="crm-preview-stats">
+                <span><b>18</b><small>новых</small></span>
+                <span><b>7</b><small>в работе</small></span>
+                <span><b>4</b><small>оплачено</small></span>
+              </div>
+              <div class="crm-preview-board">
+                <span>Анна · Лендинг</span>
+                <span>Игорь · Автоматизация</span>
+                <span>Мария · Визуалы</span>
+              </div>
+            </div>
+            <div class="work-copy">
+              <p>Мини-CRM</p>
+              <h3>Учёт заявок для услуг</h3>
+              <span class="work-open">Смотреть интерфейс</span>
+            </div>
+          </button>
         </div>
       </section>
 
@@ -264,6 +309,27 @@
         </div>
       </section>
     </main>
+
+    <dialog class="case-dialog" id="case-dialog" aria-labelledby="case-title">
+      <div class="case-shell">
+        <button class="case-close" type="button" aria-label="Закрыть кейс" title="Закрыть">×</button>
+        <div class="case-layout">
+          <div class="case-visual" id="case-visual"></div>
+          <div class="case-details">
+            <p class="eyebrow" id="case-type"></p>
+            <h2 id="case-title"></h2>
+            <p class="case-summary" id="case-summary"></p>
+            <div class="case-metrics" id="case-metrics"></div>
+            <h3>Что внутри</h3>
+            <ul class="case-list" id="case-list"></ul>
+            <div class="case-actions">
+              <a class="button primary" href="https://t.me/baraskin_ds" target="_blank" rel="noopener">Хочу похожее решение</a>
+              <button class="button ghost case-secondary-close" type="button">Вернуться к работам</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </dialog>
 
     <div class="floating-contact" aria-label="Быстрая связь">
       <a href="https://t.me/baraskin_ds" target="_blank" rel="noopener">
