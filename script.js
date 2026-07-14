@@ -11,6 +11,9 @@ const caseList = document.querySelector("#case-list");
 const caseProjectLink = document.querySelector("#case-project-link");
 const caseContactLink = document.querySelector("#case-contact-link");
 const caseCloseButtons = document.querySelectorAll(".case-close, .case-secondary-close");
+const workFilters = document.querySelectorAll(".work-filter[data-filter]");
+const workItems = document.querySelectorAll(".work-item[data-category]");
+const workCount = document.querySelector("#work-count");
 
 const caseData = {
   roofing: {
@@ -204,6 +207,33 @@ const ticker = document.querySelector(".ticker");
 if (ticker) {
   ticker.innerHTML += ticker.innerHTML;
 }
+
+function formatWorkCount(count) {
+  if (count === 1) return "1 работа";
+  if (count > 1 && count < 5) return `${count} работы`;
+  return `${count} работ`;
+}
+
+workFilters.forEach((filterButton) => {
+  filterButton.addEventListener("click", () => {
+    const selectedFilter = filterButton.dataset.filter;
+    let visibleCount = 0;
+
+    workFilters.forEach((button) => {
+      const isActive = button === filterButton;
+      button.classList.toggle("active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
+    });
+
+    workItems.forEach((item) => {
+      const isVisible = selectedFilter === "all" || item.dataset.category === selectedFilter;
+      item.hidden = !isVisible;
+      if (isVisible) visibleCount += 1;
+    });
+
+    if (workCount) workCount.textContent = formatWorkCount(visibleCount);
+  });
+});
 
 function renderCaseVisual(item) {
   if (item.visual === "iframe") {

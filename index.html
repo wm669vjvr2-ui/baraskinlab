@@ -3,12 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Даниил Седич - AI-контент, лендинги и автоматизация</title>
+    <title>Baraskin - лендинги, AI-контент и автоматизация</title>
     <meta
       name="description"
       content="Лендинги, Reels, AI-визуалы и автоматизация для бизнеса. Быстрый прототип, понятные цены и работа на 50% ниже рынка."
     />
-    <link rel="stylesheet" href="styles.css" />
+    <meta name="theme-color" content="#f26a1b" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Baraskin - лендинги и автоматизация для бизнеса" />
+    <meta property="og:description" content="Реальные сайты, CRM и автоматизация с понятной стоимостью от первого сообщения до запуска." />
+    <meta property="og:url" content="https://xn----8sbebb7beezgo4b1c0g.xn--p1ai/baraskin/" />
+    <meta property="og:image" content="https://xn----8sbebb7beezgo4b1c0g.xn--p1ai/baraskin/assets/portfolio-page-1.png" />
+    <link rel="canonical" href="https://xn----8sbebb7beezgo4b1c0g.xn--p1ai/baraskin/" />
+    <link rel="stylesheet" href="styles.css?v=20260714" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Baraskin",
+        "url": "https://xn----8sbebb7beezgo4b1c0g.xn--p1ai/baraskin/",
+        "description": "Лендинги, AI-контент, CRM и автоматизация для бизнеса.",
+        "areaServed": "RU",
+        "priceRange": "₽₽",
+        "sameAs": [
+          "https://www.instagram.com/baraskin_ds",
+          "https://t.me/baraskin_ds"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div class="cursor-shadow" aria-hidden="true"></div>
@@ -22,6 +44,7 @@
         <a href="#offer">Выгоды</a>
         <a href="#works">Работы</a>
         <a href="#prices">Цены</a>
+        <a href="#faq">FAQ</a>
       </nav>
       <div class="header-actions">
         <a class="nav-action secondary" href="https://www.instagram.com/baraskin_ds" target="_blank" rel="noopener">Instagram</a>
@@ -33,24 +56,26 @@
       <section class="hero">
         <div class="hero-copy reveal">
           <p class="eyebrow">Для бизнеса, экспертов и локальных услуг</p>
-          <h1>Упакую<br />вашу услугу,<br />чтобы клиенты<br />писали.</h1>
+          <h1>Упакую услугу,<br />чтобы клиенты<br />писали.</h1>
           <p class="hero-text">
             Делаю лендинги, Reels, визуалы и автоматизацию: быстро превращаю идею из переписки в понятный результат. Клиент видит оффер, цену, примеры и сразу понимает, куда написать.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="https://t.me/baraskin_ds" target="_blank" rel="noopener">
-              Обсудить задачу в Telegram
+              Обсудить в Telegram
             </a>
-            <a class="button ghost" href="assets/Portfolio_Daniil_Sedich_RU.pdf" target="_blank" rel="noopener">
-              Открыть портфолио
+            <a class="button ghost" href="#works">
+              Смотреть работы
             </a>
           </div>
-          <p class="cta-note">Можно написать одним сообщением: что продаёте, кому и какой результат нужен.</p>
+          <p class="cta-note">
+            Можно написать одним сообщением: что продаёте, кому и какой результат нужен.
+            <a href="assets/Portfolio_Daniil_Sedich_RU.pdf" target="_blank" rel="noopener">PDF-портфолио</a>
+          </p>
           <div class="hero-facts" aria-label="Ключевые условия">
-            <span>50% ниже рынка</span>
-            <span>Предпросмотр 500 руб.</span>
-            <span>Лендинг 7-10 тыс. руб.</span>
-            <span>Автоматизация от 15 тыс. руб.</span>
+            <div><strong>6</strong><span>реальных кейсов</span></div>
+            <div><strong>4</strong><span>проекта можно открыть</span></div>
+            <div><strong>500 ₽</strong><span>старт с предпросмотра</span></div>
           </div>
         </div>
 
@@ -104,12 +129,24 @@
       </section>
 
       <section id="works" class="section works">
-        <div class="section-head reveal">
-          <p class="eyebrow">Реальные работы</p>
-          <h2>Проекты, которые уже собраны, опубликованы или работают на настоящем коде.</h2>
+        <div class="works-heading reveal">
+          <div class="section-head">
+            <p class="eyebrow">Реальные работы</p>
+            <h2>Работы, которые можно открыть и проверить.</h2>
+            <p>Выберите направление и откройте кейс: живые сайты и системы работают прямо внутри портфолио.</p>
+          </div>
+          <div class="work-filter-panel" aria-label="Фильтр работ">
+            <div class="work-filters">
+              <button class="work-filter active" type="button" data-filter="all" aria-pressed="true">Все</button>
+              <button class="work-filter" type="button" data-filter="sites" aria-pressed="false">Сайты</button>
+              <button class="work-filter" type="button" data-filter="systems" aria-pressed="false">CRM и автоматизация</button>
+              <button class="work-filter" type="button" data-filter="content" aria-pressed="false">Контент</button>
+            </div>
+            <span class="work-count" id="work-count" aria-live="polite">6 работ</span>
+          </div>
         </div>
         <div class="work-grid">
-          <button class="work-item reveal" type="button" data-case="roofing">
+          <button class="work-item reveal" type="button" data-case="roofing" data-category="sites">
             <img src="assets/portfolio-page-3.png" alt="Лендинг для кровельной компании" />
             <div class="work-copy">
               <p>Запущенный сайт</p>
@@ -117,7 +154,7 @@
               <span class="work-open">Открыть живой сайт</span>
             </div>
           </button>
-          <button class="work-item reveal" type="button" data-case="lawyer-crm">
+          <button class="work-item reveal" type="button" data-case="lawyer-crm" data-category="systems">
             <img src="assets/crm-lawyer-preview.png" alt="CRM-система для юриста" />
             <div class="work-copy">
               <p>Рабочая CRM</p>
@@ -125,7 +162,7 @@
               <span class="work-open">Открыть CRM</span>
             </div>
           </button>
-          <button class="work-item reveal" type="button" data-case="expense-bot">
+          <button class="work-item reveal" type="button" data-case="expense-bot" data-category="systems">
             <img src="assets/expenses-app-preview.png" alt="Рабочая web-версия бота учёта расходов" />
             <div class="work-copy">
               <p>Telegram-бот + web</p>
@@ -133,7 +170,7 @@
               <span class="work-open">Открыть рабочую версию</span>
             </div>
           </button>
-          <button class="work-item reveal" type="button" data-case="lead-flow">
+          <button class="work-item reveal" type="button" data-case="lead-flow" data-category="systems">
             <img src="assets/lead-flow-preview.png" alt="Рабочая автоматизация заявок с API и SQLite" />
             <div class="work-copy">
               <p>Серверная автоматизация</p>
@@ -141,7 +178,7 @@
               <span class="work-open">Отправить тестовую заявку</span>
             </div>
           </button>
-          <button class="work-item reveal" type="button" data-case="ai-video">
+          <button class="work-item reveal" type="button" data-case="ai-video" data-category="content">
             <img src="assets/portfolio-page-4.png" alt="AI-видео и короткий контент" />
             <div class="work-copy">
               <p>AI-видео</p>
@@ -149,7 +186,7 @@
               <span class="work-open">Посмотреть материалы</span>
             </div>
           </button>
-          <button class="work-item reveal" type="button" data-case="visuals">
+          <button class="work-item reveal" type="button" data-case="visuals" data-category="content">
             <img src="assets/portfolio-page-5.png" alt="Визуалы, баннеры и презентации" />
             <div class="work-copy">
               <p>Визуалы</p>
@@ -157,6 +194,13 @@
               <span class="work-open">Посмотреть материалы</span>
             </div>
           </button>
+        </div>
+        <div class="works-cta reveal">
+          <div>
+            <strong>Нет точно такого же примера?</strong>
+            <p>Опишите задачу в двух предложениях. Я покажу ближайший подход или предложу предпросмотр за 500 ₽.</p>
+          </div>
+          <a class="button primary" href="https://t.me/baraskin_ds" target="_blank" rel="noopener">Показать свою задачу</a>
         </div>
       </section>
 
@@ -190,30 +234,56 @@
       </section>
 
       <section id="prices" class="section prices">
-        <div class="price-copy reveal">
+        <div class="section-head price-copy reveal">
           <p class="eyebrow">Стоимость</p>
-          <h2>Понятные цены, чтобы можно было начать уже сейчас.</h2>
+          <h2>Сразу понятно, что вы получите за свои деньги.</h2>
           <p>
-            Если пока страшно заказывать большой проект, начните с маленького предпросмотра. Если направление нравится, двигаемся дальше.
+            Без агентской наценки и скрытых доплат. До старта фиксируем задачу, состав работы и итоговую стоимость.
           </p>
+        </div>
+        <div class="portfolio-price-note reveal">
+          <span>Портфельная стоимость</span>
+          <p><strong>Примерно на 50% ниже рынка:</strong> сейчас я собираю сильное портфолио и беру компактные проекты без расходов большой студии.</p>
         </div>
         <div class="price-cards reveal">
           <article class="price-card">
-            <span>Старт</span>
+            <span>Проверить направление</span>
+            <h3>Предпросмотр</h3>
             <strong>500 руб.</strong>
-            <p>Предпросмотр интерфейса или визуального направления.</p>
+            <p>Небольшой первый шаг, чтобы увидеть идею до заказа полного проекта.</p>
+            <ul class="price-features">
+              <li>Разбор задачи в переписке</li>
+              <li>Один ключевой экран</li>
+              <li>Визуальное направление</li>
+              <li>План следующего шага</li>
+            </ul>
             <a href="https://t.me/baraskin_ds" target="_blank" rel="noopener">Заказать предпросмотр</a>
           </article>
           <article class="price-card featured">
-            <span>Лендинг</span>
+            <div class="popular-label">Чаще выбирают</div>
+            <span>Сайт для заявок</span>
+            <h3>Лендинг</h3>
             <strong>7-10 тыс. руб.</strong>
-            <p>Структура, дизайн, адаптив, анимации и кнопки связи.</p>
+            <p>Готовая страница, которую можно отправлять клиентам или запускать в рекламу.</p>
+            <ul class="price-features">
+              <li>Структура и понятный оффер</li>
+              <li>Дизайн и мобильная версия</li>
+              <li>Анимации и кнопки связи</li>
+              <li>Публикация на домене</li>
+            </ul>
             <a href="https://t.me/baraskin_ds" target="_blank" rel="noopener">Обсудить лендинг</a>
           </article>
           <article class="price-card">
-            <span>Автоматизация</span>
+            <span>Меньше ручной работы</span>
+            <h3>Автоматизация</h3>
             <strong>от 15 тыс. руб.</strong>
-            <p>Связки сервисов и сценарии, которые экономят ручную работу.</p>
+            <p>Сценарий под ваш процесс: заявка, проверка, сохранение и нужное действие.</p>
+            <ul class="price-features">
+              <li>Разбор текущего процесса</li>
+              <li>API или интеграции сервисов</li>
+              <li>База, таблица или уведомления</li>
+              <li>Тестирование и запуск</li>
+            </ul>
             <a href="https://t.me/baraskin_ds" target="_blank" rel="noopener">Разобрать процесс</a>
           </article>
         </div>
@@ -241,6 +311,35 @@
             <span>04</span>
             <p>Вношу правки и отдаю финальную ссылку или файлы.</p>
           </div>
+        </div>
+      </section>
+
+      <section id="faq" class="section faq">
+        <div class="section-head reveal">
+          <p class="eyebrow">Частые вопросы</p>
+          <h2>Чтобы всё важное было понятно ещё до переписки.</h2>
+        </div>
+        <div class="faq-list reveal">
+          <details open>
+            <summary><span>01</span>Почему цена ниже рынка?</summary>
+            <p>Я работаю самостоятельно, без офиса, менеджеров и агентской наценки. Сейчас расширяю портфолио, поэтому беру компактные проекты примерно на 50% ниже средней студийной цены.</p>
+          </details>
+          <details>
+            <summary><span>02</span>Что нужно прислать для старта?</summary>
+            <p>Достаточно написать, что вы продаёте, кто ваш клиент и какое действие человек должен сделать. Если материалов мало, помогу собрать структуру из переписки.</p>
+          </details>
+          <details>
+            <summary><span>03</span>Как понять, что результат мне подойдёт?</summary>
+            <p>Можно начать с предпросмотра за 500 ₽. Вы увидите ключевой экран и направление до того, как заказывать полную работу.</p>
+          </details>
+          <details>
+            <summary><span>04</span>Можно проверить проекты в портфолио?</summary>
+            <p>Да. Сайт кровельной компании, CRM для юриста, учёт расходов и автоматизация заявок открываются как рабочие проекты.</p>
+          </details>
+          <details>
+            <summary><span>05</span>Что происходит после первого сообщения?</summary>
+            <p>Я уточняю задачу, предлагаю формат, называю стоимость и объём. После согласования показываю промежуточный результат, вношу оговорённые правки и публикую проект.</p>
+          </details>
         </div>
       </section>
 
@@ -302,6 +401,6 @@
       </a>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20260714"></script>
   </body>
 </html>
