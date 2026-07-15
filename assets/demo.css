@@ -27,6 +27,7 @@ body {
   font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 button, input, select { font: inherit; }
+button:disabled { cursor: wait; opacity: .62; transform: none !important; box-shadow: none !important; }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 
@@ -203,6 +204,8 @@ h3 { margin-bottom: 10px; font-size: 22px; line-height: 1.08; letter-spacing: -.
 .data-list { display: grid; gap: 9px; }
 .data-row { padding: 13px; display: grid; grid-template-columns: 42px 1fr auto; align-items: center; gap: 12px; border: 1px solid #efd7bc; border-radius: 14px; background: #fffaf3; cursor: pointer; }
 .data-row:hover { border-color: var(--accent); }
+.data-row.selected { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(242,106,27,.12); }
+.data-row[hidden] { display: none; }
 .avatar { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 13px; background: var(--accent-soft); color: var(--accent-dark); font-weight: 900; }
 .data-copy strong, .data-copy span { display: block; }
 .data-copy span { margin-top: 4px; color: var(--muted); font-size: 12px; }
@@ -224,9 +227,47 @@ h3 { margin-bottom: 10px; font-size: 22px; line-height: 1.08; letter-spacing: -.
 .product { padding: 15px; border: 1px solid var(--line); border-radius: 15px; background: #fffaf3; }
 .product-visual { height: 86px; margin-bottom: 13px; display: grid; place-items: center; border-radius: 12px; background: linear-gradient(135deg, #ffd5aa, #fff1df); color: var(--accent-dark); font-size: 32px; }
 .product p { color: var(--muted); font-size: 12px; }
+.product.ready { border-color: #a8c5a8; background: #f5fbf2; }
+.product .product-actions { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 7px; }
+.product .product-actions .button { flex: 1; }
 .toast { position: fixed; right: 22px; bottom: 22px; z-index: 50; max-width: 320px; padding: 14px 17px; border-radius: 14px; background: var(--ink); color: white; box-shadow: var(--shadow); transform: translateY(30px); opacity: 0; pointer-events: none; transition: .25s ease; }
 .toast.show { transform: translateY(0); opacity: 1; }
 .demo-note { margin-top: 18px; color: var(--muted); font-size: 12px; }
+.stack { display: grid; gap: 12px; }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.field { display: grid; gap: 6px; }
+.field > span { color: var(--muted); font-size: 12px; font-weight: 800; }
+.field input, .field textarea, .field select { width: 100%; min-height: 42px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 11px; outline: none; background: #fffdf9; color: var(--ink); }
+.field textarea { min-height: 104px; resize: vertical; line-height: 1.45; }
+.field input:focus, .field textarea:focus, .field select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(242,106,27,.12); }
+.check-row { display: flex; align-items: center; gap: 9px; color: var(--muted); font-size: 13px; cursor: pointer; }
+.check-row input { width: 17px; height: 17px; accent-color: var(--accent); }
+.row-check { width: 18px; height: 18px; accent-color: var(--accent); }
+.row-actions { display: flex; flex-wrap: wrap; gap: 7px; }
+.status-pill { display: inline-flex; width: max-content; padding: 6px 9px; border-radius: 999px; background: var(--accent-soft); color: var(--accent-dark); font-size: 11px; font-weight: 900; }
+.status-pill.success { background: #edf7e9; color: var(--success); }
+.status-pill.muted { background: #f2e9df; color: var(--muted); }
+.empty-state { padding: 24px; border: 1px dashed var(--line); border-radius: 14px; text-align: center; color: var(--muted); }
+.log-list { max-height: 310px; overflow: auto; display: grid; gap: 8px; }
+.log-item { padding: 11px 12px; border-left: 3px solid var(--accent); border-radius: 0 11px 11px 0; background: #fffaf3; color: var(--muted); font-size: 12px; line-height: 1.45; }
+.log-item strong { display: block; margin-bottom: 2px; color: var(--ink); }
+.counter-note { color: var(--muted); font-size: 12px; }
+.table-wrap { overflow-x: auto; }
+.mapping-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.mapping-table th, .mapping-table td { padding: 11px 9px; border-bottom: 1px solid var(--line); text-align: left; }
+.mapping-table th { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .06em; }
+.mapping-table select { width: 100%; min-height: 36px; padding: 0 9px; border: 1px solid var(--line); border-radius: 9px; background: white; color: var(--ink); }
+.demo-dialog { width: min(620px, calc(100% - 28px)); max-height: min(760px, calc(100vh - 28px)); overflow: auto; padding: 0; border: 1px solid var(--line); border-radius: 22px; background: var(--panel); color: var(--ink); box-shadow: 0 28px 90px rgba(58,25,8,.28); }
+.demo-dialog::backdrop { background: rgba(58,25,8,.54); backdrop-filter: blur(4px); }
+.dialog-head { position: sticky; top: 0; z-index: 2; padding: 17px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--line); background: rgba(255,248,238,.96); }
+.dialog-head h2 { margin: 0; font-size: 25px; }
+.dialog-close { width: 38px; height: 38px; border: 1px solid var(--line); border-radius: 12px; background: transparent; color: var(--ink); cursor: pointer; }
+.dialog-body { padding: 20px; }
+.dialog-actions { padding: 0 20px 20px; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+.campaign-progress { margin-top: 14px; display: none; }
+.campaign-progress.active { display: grid; gap: 7px; }
+.campaign-progress small { color: var(--muted); }
+.inline-code { padding: 2px 6px; border-radius: 6px; background: #f5dbc0; color: var(--accent-dark); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
 
 @media (max-width: 900px) {
   .nav { display: none; }
@@ -269,6 +310,8 @@ h3 { margin-bottom: 10px; font-size: 22px; line-height: 1.08; letter-spacing: -.
   .metric-grid { grid-template-columns: 1fr 1fr; }
   .metric strong { font-size: 24px; }
   .product-grid { grid-template-columns: 1fr; }
+  .split { grid-template-columns: 1fr; }
+  .dialog-actions .button { flex: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {

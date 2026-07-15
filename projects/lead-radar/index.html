@@ -1,7 +1,72 @@
-<!doctype html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Lead Radar — BARASKIN LAB</title><link rel="icon" href="../../assets/baraskin-lab-logo.png"><link rel="stylesheet" href="../../assets/demo.css"></head><body class="demo-body" data-demo="lead-radar">
-<header class="demo-header"><a class="brand" href="../../"><img src="../../assets/baraskin-lab-logo.png" alt=""><span class="brand-copy">BARASKIN LAB<small>Lead Radar</small></span></a><a class="demo-back" href="../../#works">← Все демо</a></header>
-<div class="demo-layout"><aside class="sidebar"><h4>Lead Radar</h4><nav class="side-nav"><button class="active">⌁ <span>Лиды</span></button><button>◎ <span>Источники</span></button><button>↗ <span>Выгрузки</span></button><button>⚙ <span>Настройки</span></button></nav><div class="sidebar-foot">Прототип показывает сценарий поиска, AI‑оценки и передачи лидов. Реальные Telegram‑данные не используются.</div></aside>
-<main class="demo-main"><div class="demo-title"><div><p class="eyebrow">AI‑агент для Telegram</p><h1>Lead Radar</h1><p>Находит сообщения с намерением купить и готовит лиды для менеджера.</p></div><button class="button primary small" data-toast="Сканирование запущено: новые сообщения появятся после проверки AI-фильтром.">Запустить сканирование</button></div>
-<section class="metric-grid"><div class="metric"><span>Найдено сегодня</span><strong>48</strong></div><div class="metric"><span>Релевантные</span><strong>12</strong></div><div class="metric"><span>Передано в CRM</span><strong>9</strong></div><div class="metric"><span>Точность фильтра</span><strong>87%</strong></div></section>
-<div class="app-grid"><section class="app-panel"><div class="panel-head"><h2>Потенциальные лиды</h2><span class="live-pill">Онлайн</span></div><input class="search" data-search placeholder="Поиск по сообщению или каналу"><div class="data-list" style="margin-top:12px"><article class="data-row"><i class="avatar">АМ</i><div class="data-copy"><strong>Нужна гидроизоляция склада</strong><span>@stroika_msk · бюджет указан</span></div><b class="score">94</b></article><article class="data-row"><i class="avatar">ДС</i><div class="data-copy"><strong>Ищем подрядчика для сметы</strong><span>@business_requests · срочный запрос</span></div><b class="score">88</b></article><article class="data-row"><i class="avatar">ЕК</i><div class="data-copy"><strong>Консультация инженера</strong><span>@pro_remont · Московская область</span></div><b class="score medium">71</b></article><article class="data-row"><i class="avatar">ВП</i><div class="data-copy"><strong>Посоветуйте материал для крыши</strong><span>@dom_chat · информационный интерес</span></div><b class="score low">43</b></article></div></section>
-<aside class="app-panel"><div class="panel-head"><h2>Активность</h2><button class="button ghost small" data-toast="Отчёт подготовлен: 12 лидов, 4 источника, период — сегодня.">Экспорт</button></div><div class="activity"><div class="activity-item"><strong>Лид отправлен в CRM</strong>«Гидроизоляция склада» · 2 мин назад</div><div class="activity-item"><strong>AI исключил сообщение</strong>Вакансия и реклама без запроса · 8 мин назад</div><div class="activity-item"><strong>Обновлён источник</strong>@stroika_msk · 14 мин назад</div><div class="activity-item"><strong>Сканирование завершено</strong>Проверено 326 сообщений · 20 мин назад</div></div><p class="demo-note">В рабочей версии: Telethon, LLM‑классификация, дедупликация, экспорт Excel и CRM API.</p></aside></div></main></div><div class="toast"></div><script src="../../assets/demo.js"></script></body></html>
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lead Radar — BARASKIN LAB</title>
+    <link rel="icon" href="../../assets/baraskin-lab-logo-clean.png" />
+    <link rel="stylesheet" href="../../assets/demo.css?v=20260716" />
+  </head>
+  <body class="demo-body" data-demo="lead-radar">
+    <header class="demo-header">
+      <a class="brand" href="../../"><img src="../../assets/baraskin-lab-logo-clean.png" alt="" /><span class="brand-copy">BARASKIN LAB<small>Lead Radar</small></span></a>
+      <a class="demo-back" href="../../#works">← Все демо</a>
+    </header>
+    <div class="demo-layout">
+      <aside class="sidebar">
+        <h4>Lead Radar</h4>
+        <nav class="side-nav" aria-label="Разделы Lead Radar">
+          <button class="active" data-section="leads">⌁ <span>Лиды</span></button>
+          <button data-section="sources">◎ <span>Источники</span></button>
+          <button data-section="exports">↗ <span>Выгрузки</span></button>
+          <button data-section="settings">⚙ <span>Настройки</span></button>
+        </nav>
+        <div class="sidebar-foot">Рабочее демо на тестовых данных: поиск, AI‑оценка, статусы, экспорт и передача лида в CRM.</div>
+      </aside>
+      <main class="demo-main">
+        <div class="demo-title">
+          <div><p class="eyebrow">AI‑агент для Telegram</p><h1>Lead Radar</h1><p>Находит сообщения с намерением купить и готовит лиды для менеджера.</p></div>
+          <button class="button primary small" data-scan>Запустить сканирование</button>
+        </div>
+        <section class="metric-grid">
+          <div class="metric"><span>Найдено сегодня</span><strong data-leads-total>48</strong></div>
+          <div class="metric"><span>Релевантные</span><strong data-leads-relevant>12</strong></div>
+          <div class="metric"><span>Передано в CRM</span><strong data-leads-crm>9</strong></div>
+          <div class="metric"><span>Точность фильтра</span><strong>87%</strong></div>
+        </section>
+        <div class="app-grid">
+          <section class="app-panel">
+            <div class="panel-head"><h2>Потенциальные лиды</h2><span class="live-pill" data-scan-status>Онлайн</span></div>
+            <div class="toolbar">
+              <input class="search" data-lead-search placeholder="Поиск по сообщению или каналу" />
+              <select class="select" data-lead-filter aria-label="Фильтр лидов">
+                <option value="all">Все лиды</option>
+                <option value="hot">Горячие 80+</option>
+                <option value="new">Только новые</option>
+                <option value="crm">Переданы в CRM</option>
+              </select>
+            </div>
+            <div class="data-list" data-lead-list style="margin-top:12px"></div>
+          </section>
+          <aside class="app-panel">
+            <div class="panel-head"><h2>Активность</h2><button class="button ghost small" data-export-leads>Скачать CSV</button></div>
+            <div class="log-list" data-lead-log></div>
+            <p class="demo-note">Данные сохраняются в браузере. Кнопка экспорта формирует настоящий CSV‑файл.</p>
+          </aside>
+        </div>
+      </main>
+    </div>
+    <dialog class="demo-dialog" data-lead-dialog>
+      <div class="dialog-head"><h2 data-lead-dialog-title>Карточка лида</h2><button class="dialog-close" data-close-dialog aria-label="Закрыть">×</button></div>
+      <div class="dialog-body stack">
+        <p data-lead-dialog-meta></p>
+        <div class="template-card"><strong>AI‑резюме</strong><p data-lead-dialog-summary></p></div>
+        <label class="field"><span>Статус</span><select data-lead-status><option value="new">Новый</option><option value="contacted">В работе</option><option value="crm">Передан в CRM</option><option value="rejected">Отклонён</option></select></label>
+        <label class="field"><span>Комментарий менеджера</span><textarea data-lead-note placeholder="Что нужно уточнить у клиента"></textarea></label>
+      </div>
+      <div class="dialog-actions"><button class="button ghost" data-save-lead>Сохранить</button><button class="button primary" data-send-crm>Передать в CRM</button></div>
+    </dialog>
+    <div class="toast"></div>
+    <script src="../../assets/demo.js?v=20260716"></script>
+  </body>
+</html>

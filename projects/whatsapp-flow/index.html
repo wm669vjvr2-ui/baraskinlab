@@ -1,5 +1,75 @@
-<!doctype html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Renewal Flow — BARASKIN LAB</title><link rel="icon" href="../../assets/baraskin-lab-logo.png"><link rel="stylesheet" href="../../assets/demo.css"></head><body class="demo-body" data-demo="whatsapp-flow">
-<header class="demo-header"><a class="brand" href="../../"><img src="../../assets/baraskin-lab-logo.png" alt=""><span class="brand-copy">BARASKIN LAB<small>Renewal Flow</small></span></a><a class="demo-back" href="../../#works">← Все демо</a></header><div class="demo-layout"><aside class="sidebar"><h4>Renewal Flow</h4><nav class="side-nav"><button class="active">✉ <span>Кампании</span></button><button>◉ <span>Клиенты</span></button><button>▤ <span>Шаблоны</span></button><button>⚙ <span>API</span></button></nav><div class="sidebar-foot">Прототип модуля рассылок для существующей Laravel‑админки.</div></aside>
-<main class="demo-main"><div class="demo-title"><div><p class="eyebrow">Laravel + WhatsApp Business API</p><h1>Renewal Flow</h1><p>Напоминания о продлении с лимитами, шаблонами и контролем доставки.</p></div><button class="button primary small" data-campaign>Запустить тест</button></div><section class="metric-grid"><div class="metric"><span>Клиентов в сегменте</span><strong>128</strong></div><div class="metric"><span>Отправлено</span><strong data-sent>0</strong></div><div class="metric"><span>Доставлено</span><strong data-delivered>0</strong></div><div class="metric"><span>Отписки</span><strong>2</strong></div></section>
-<div class="app-grid"><section class="app-panel"><div class="panel-head"><h2>Новая кампания</h2><span class="live-pill">API подключён</span></div><div class="toolbar"><select class="select"><option>Истечение через 90 дней</option><option>Истечение через 30 дней</option><option>Истечение через 7 дней</option></select><select class="select"><option>Шаблон: продление</option><option>Шаблон: последнее напоминание</option></select></div><div class="data-list" style="margin-top:16px"><article class="data-row"><i class="avatar">АК</i><div class="data-copy"><strong>Анна Ковалева</strong><span>Окончание: 13 октября 2026</span></div><b class="score">90 дн.</b></article><article class="data-row"><i class="avatar">ИП</i><div class="data-copy"><strong>Илья Петров</strong><span>Окончание: 14 августа 2026</span></div><b class="score medium">30 дн.</b></article><article class="data-row"><i class="avatar">МС</i><div class="data-copy"><strong>Мария Соколова</strong><span>Окончание: 22 июля 2026</span></div><b class="score low">7 дн.</b></article></div></section>
-<aside class="app-panel"><div class="panel-head"><h2>Шаблон</h2><button class="button ghost small" data-toast="Предпросмотр отправлен на тестовый номер.">Предпросмотр</button></div><div class="template-card"><strong>Напоминание о продлении</strong><p>Здравствуйте, {{name}}! Срок вашей услуги заканчивается {{date}}. Ответьте «Продлить», и менеджер свяжется с вами.</p></div><div class="template-card"><strong>Безопасная отправка</strong><p>Лимит: 30 сообщений/мин · тихие часы · стоп‑слова · обработка отписок.</p></div><p class="demo-note">В рабочей версии: официальный WhatsApp Business API или согласованный шлюз, webhook‑статусы и журнал кампаний.</p></aside></div></main></div><div class="toast"></div><script src="../../assets/demo.js"></script></body></html>
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Renewal Flow — BARASKIN LAB</title>
+    <link rel="icon" href="../../assets/baraskin-lab-logo-clean.png" />
+    <link rel="stylesheet" href="../../assets/demo.css?v=20260716" />
+  </head>
+  <body class="demo-body" data-demo="whatsapp-flow">
+    <header class="demo-header">
+      <a class="brand" href="../../"><img src="../../assets/baraskin-lab-logo-clean.png" alt="" /><span class="brand-copy">BARASKIN LAB<small>Renewal Flow</small></span></a>
+      <a class="demo-back" href="../../#works">← Все демо</a>
+    </header>
+    <div class="demo-layout">
+      <aside class="sidebar">
+        <h4>Renewal Flow</h4>
+        <nav class="side-nav" aria-label="Разделы Renewal Flow">
+          <button class="active" data-section="campaigns">✉ <span>Кампании</span></button>
+          <button data-section="clients">◉ <span>Клиенты</span></button>
+          <button data-section="templates">▤ <span>Шаблоны</span></button>
+          <button data-section="api">⚙ <span>API</span></button>
+        </nav>
+        <div class="sidebar-foot">Рабочее демо рассылок: сегментация, выбор получателей, шаблоны, статусы доставки и журнал.</div>
+      </aside>
+      <main class="demo-main">
+        <div class="demo-title">
+          <div><p class="eyebrow">Laravel + WhatsApp Business API</p><h1>Renewal Flow</h1><p>Напоминания о продлении с лимитами, шаблонами и контролем доставки.</p></div>
+          <button class="button primary small" data-campaign>Запустить кампанию</button>
+        </div>
+        <section class="metric-grid">
+          <div class="metric"><span>Клиентов в базе</span><strong data-client-count>5</strong></div>
+          <div class="metric"><span>Отправлено</span><strong data-sent>0</strong></div>
+          <div class="metric"><span>Доставлено</span><strong data-delivered>0</strong></div>
+          <div class="metric"><span>Отписки</span><strong data-unsubscribed>1</strong></div>
+        </section>
+        <div class="app-grid">
+          <section class="app-panel">
+            <div class="panel-head"><h2>Новая кампания</h2><button class="button ghost small" data-add-client>Добавить клиента</button></div>
+            <div class="toolbar">
+              <select class="select" data-segment><option value="all">Все сроки</option><option value="90">Истечение через 90 дней</option><option value="30">Истечение через 30 дней</option><option value="7">Истечение через 7 дней</option></select>
+              <select class="select" data-template><option value="renewal">Шаблон: продление</option><option value="last">Шаблон: последнее напоминание</option></select>
+              <button class="button ghost small" data-select-visible>Выбрать видимых</button>
+            </div>
+            <div class="data-list" data-client-list style="margin-top:16px"></div>
+            <div class="campaign-progress" data-campaign-progress><small data-campaign-progress-text>Подготовка…</small><div class="progress"><i data-campaign-progress-bar style="--progress:0%"></i></div></div>
+          </section>
+          <aside class="app-panel">
+            <div class="panel-head"><h2>Сообщение</h2><button class="button ghost small" data-preview-campaign>Предпросмотр</button></div>
+            <label class="field"><span>Текст шаблона</span><textarea data-template-text>Здравствуйте, {{name}}! Срок вашей услуги заканчивается {{date}}. Ответьте «Продлить», и менеджер свяжется с вами.</textarea></label>
+            <div class="template-card" style="margin-top:12px"><strong>Безопасная отправка</strong><p>Лимит: 30 сообщений/мин · тихие часы · стоп‑слова · обработка отписок.</p></div>
+            <h3 style="margin-top:18px">Журнал</h3><div class="log-list" data-campaign-log></div>
+          </aside>
+        </div>
+      </main>
+    </div>
+    <dialog class="demo-dialog" data-client-dialog>
+      <div class="dialog-head"><h2>Новый клиент</h2><button class="dialog-close" data-close-dialog aria-label="Закрыть">×</button></div>
+      <form data-client-form>
+        <div class="dialog-body stack">
+          <div class="split"><label class="field"><span>Имя</span><input name="name" required /></label><label class="field"><span>Телефон</span><input name="phone" inputmode="tel" placeholder="+7 900 000-00-00" required /></label></div>
+          <label class="field"><span>Дней до окончания</span><select name="days"><option value="90">90 дней</option><option value="30">30 дней</option><option value="7">7 дней</option></select></label>
+        </div>
+        <div class="dialog-actions"><button class="button primary" type="submit">Добавить клиента</button></div>
+      </form>
+    </dialog>
+    <dialog class="demo-dialog" data-preview-dialog>
+      <div class="dialog-head"><h2>Предпросмотр сообщения</h2><button class="dialog-close" data-close-dialog aria-label="Закрыть">×</button></div>
+      <div class="dialog-body"><div class="template-card"><strong data-preview-recipient>Получатель</strong><p data-preview-text></p></div></div>
+      <div class="dialog-actions"><button class="button primary" data-close-dialog>Понятно</button></div>
+    </dialog>
+    <div class="toast"></div>
+    <script src="../../assets/demo.js?v=20260716"></script>
+  </body>
+</html>
