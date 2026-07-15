@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 900">
+  <rect width="1280" height="900" fill="#3A1908"/><circle cx="1060" cy="130" r="330" fill="#F26A1B" opacity=".28"/>
+  <text x="90" y="125" fill="#F26A1B" font-family="Arial,sans-serif" font-size="27" font-weight="700" letter-spacing="4">AI + TELEGRAM + CRM</text>
+  <text x="90" y="235" fill="#FFF8EE" font-family="Arial,sans-serif" font-size="76" font-weight="800">Lead Radar</text>
+  <text x="90" y="292" fill="#EAC2A5" font-family="Arial,sans-serif" font-size="28">Поиск и AI-оценка потенциальных лидов</text>
+  <g transform="translate(90 360)"><rect width="1100" height="430" rx="34" fill="#FFF1DF"/>
+    <rect x="38" y="35" width="1024" height="70" rx="18" fill="#FFF8EE" stroke="#EFCDA8" stroke-width="3"/><circle cx="78" cy="70" r="13" fill="#F26A1B"/><text x="110" y="79" fill="#936A4F" font-family="Arial" font-size="24">Новые лиды</text><text x="940" y="79" fill="#4F7D54" font-family="Arial" font-size="22" font-weight="700">12 сегодня</text>
+    <g font-family="Arial"><rect x="38" y="132" width="1024" height="72" rx="18" fill="#FFF8EE"/><circle cx="79" cy="168" r="22" fill="#FFD3A4"/><text x="120" y="160" fill="#3A1908" font-size="24" font-weight="700">Нужна гидроизоляция склада</text><text x="120" y="187" fill="#936A4F" font-size="18">@stroika_msk · бюджет указан</text><rect x="948" y="147" width="76" height="42" rx="12" fill="#E9F4E7"/><text x="970" y="176" fill="#4F7D54" font-size="22" font-weight="700">94</text>
+    <rect x="38" y="220" width="1024" height="72" rx="18" fill="#FFF8EE"/><circle cx="79" cy="256" r="22" fill="#FFD3A4"/><text x="120" y="248" fill="#3A1908" font-size="24" font-weight="700">Ищем подрядчика для сметы</text><text x="120" y="275" fill="#936A4F" font-size="18">@business_requests · срочный запрос</text><rect x="948" y="235" width="76" height="42" rx="12" fill="#E9F4E7"/><text x="970" y="264" fill="#4F7D54" font-size="22" font-weight="700">88</text>
+    <rect x="38" y="308" width="1024" height="72" rx="18" fill="#FFF8EE"/><circle cx="79" cy="344" r="22" fill="#FFD3A4"/><text x="120" y="336" fill="#3A1908" font-size="24" font-weight="700">Консультация инженера</text><text x="120" y="363" fill="#936A4F" font-size="18">@pro_remont · Московская область</text><rect x="948" y="323" width="76" height="42" rx="12" fill="#FFF0C7"/><text x="970" y="352" fill="#9A6B18" font-size="22" font-weight="700">71</text></g>
+  </g>
+</svg>

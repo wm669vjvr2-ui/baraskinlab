@@ -16,6 +16,82 @@ const workItems = document.querySelectorAll(".work-item[data-category]");
 const workCount = document.querySelector("#work-count");
 
 const caseData = {
+  "lead-radar": {
+    type: "AI-агент · Telegram · CRM",
+    title: "Lead Radar",
+    summary:
+      "Прототип AI-агента, который мониторит Telegram-источники, отделяет реальные запросы от шума, оценивает лиды и передаёт их менеджеру или в CRM.",
+    metrics: [
+      ["87%", "точность демонстрационного фильтра"],
+      ["4 шага", "поиск, оценка, экспорт, CRM"],
+    ],
+    list: [
+      "Мониторинг выбранных каналов и групп",
+      "AI-классификация намерения и приоритета",
+      "Дедупликация и исключение нерелевантных сообщений",
+      "Экспорт в Excel или создание сделки в CRM",
+    ],
+    visual: "iframe",
+    projectUrl: "projects/lead-radar/",
+    projectLabel: "Открыть Lead Radar",
+  },
+  "bitrix-hub": {
+    type: "Bitrix24 · REST API · интеграция",
+    title: "CRM Integration Hub",
+    summary:
+      "Демонстрационный центр управления воронками, смарт-процессами, вебхуками и двусторонним обменом между Bitrix24 и внешней учётной системой.",
+    metrics: [
+      ["3", "смарт-процесса"],
+      ["REST", "двусторонний обмен"],
+    ],
+    list: [
+      "Воронки и обязательные поля по стадиям",
+      "Смарт-процессы, роли и связи с CRM",
+      "Входящие вебхуки и исходящие обработчики",
+      "Журнал синхронизации и ошибок",
+    ],
+    visual: "iframe",
+    projectUrl: "projects/bitrix-hub/",
+    projectLabel: "Открыть CRM Hub",
+  },
+  "whatsapp-flow": {
+    type: "Laravel · WhatsApp Business API",
+    title: "Renewal Flow",
+    summary:
+      "Прототип модуля для ручных и автоматических напоминаний о продлении: сегменты клиентов, шаблоны, расписание, статусы доставки и отписки.",
+    metrics: [
+      ["90/30/7", "дней до напоминания"],
+      ["Webhook", "статусы доставки"],
+    ],
+    list: [
+      "Фильтрация клиентов по сроку услуги",
+      "Ручные и автоматические кампании",
+      "Шаблоны сообщений с переменными",
+      "Лимиты, тихие часы и обработка отписок",
+    ],
+    visual: "iframe",
+    projectUrl: "projects/whatsapp-flow/",
+    projectLabel: "Открыть Renewal Flow",
+  },
+  "commerce-ai": {
+    type: "OpenAI API · WooCommerce · Cron",
+    title: "Commerce AI",
+    summary:
+      "Демонстрационный AI-модуль для генерации товарных описаний в фоне: очередь задач, системный Cron, повторные попытки и журнал публикаций.",
+    metrics: [
+      ["Cron", "фоновая обработка"],
+      ["Retry", "повтор при сбое API"],
+    ],
+    list: [
+      "Генерация описаний и SEO-полей",
+      "Очередь без перегрузки WordPress",
+      "Лимиты, повторные попытки и логирование",
+      "Публикация результата в WooCommerce",
+    ],
+    visual: "iframe",
+    projectUrl: "projects/commerce-ai/",
+    projectLabel: "Открыть Commerce AI",
+  },
   roofing: {
     type: "Лендинг · локальные услуги",
     title: "Сайт для кровельной компании",

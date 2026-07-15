@@ -128,6 +128,15 @@ a {
   font-size: 12px;
 }
 
+.brand-logo {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  border-radius: 11px;
+  object-fit: cover;
+  box-shadow: 0 6px 16px rgba(185, 67, 8, 0.2);
+}
+
 .nav-links {
   gap: 18px;
   color: var(--muted);
@@ -351,6 +360,12 @@ h3 {
   width: min(500px, 76%);
   aspect-ratio: 1.42;
   animation: floatMain 7s ease-in-out infinite;
+}
+
+.main-preview.studio-logo-preview {
+  width: min(430px, 70%);
+  aspect-ratio: 1;
+  object-fit: cover;
 }
 
 .side-preview {
