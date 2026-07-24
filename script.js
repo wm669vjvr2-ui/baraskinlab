@@ -14,6 +14,9 @@ const caseCloseButtons = document.querySelectorAll(".case-close, .case-secondary
 const workFilters = document.querySelectorAll(".work-filter[data-filter]");
 const workItems = document.querySelectorAll(".work-item[data-category]");
 const workCount = document.querySelector("#work-count");
+const scrollProgress = document.querySelector(".scroll-progress");
+const tiltItems = document.querySelectorAll("[data-tilt]");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 const caseData = {
   "lead-radar": {
@@ -280,6 +283,8 @@ let lastMouseY = mouseY;
 let cursorEnergy = 0;
 
 function animateShadow() {
+  if (!shadow || prefersReducedMotion.matches) return;
+
   const dx = mouseX - lastMouseX;
   const dy = mouseY - lastMouseY;
   const speed = Math.min(Math.hypot(dx, dy), 90);
@@ -304,12 +309,23 @@ window.addEventListener("pointermove", (event) => {
 });
 
 window.addEventListener("pointerleave", () => {
-  shadow.style.opacity = "0";
+  if (shadow) shadow.style.opacity = "0";
 });
 
 window.addEventListener("pointerenter", () => {
-  shadow.style.opacity = "0.85";
+  if (shadow) shadow.style.opacity = "0.85";
 });
+
+function updateScrollProgress() {
+  if (!scrollProgress) return;
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 0;
+  scrollProgress.style.setProperty("--scroll-progress", progress.toFixed(4));
+}
+
+window.addEventListener("scroll", updateScrollProgress, { passive: true });
+window.addEventListener("resize", updateScrollProgress);
+updateScrollProgress();
 
 const revealObserver = new IntersectionObserver(
   (entries) => {
@@ -324,6 +340,23 @@ const revealObserver = new IntersectionObserver(
 );
 
 revealItems.forEach((item) => revealObserver.observe(item));
+
+if (!prefersReducedMotion.matches) {
+  tiltItems.forEach((item) => {
+    item.addEventListener("pointermove", (event) => {
+      const rect = item.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      item.style.setProperty("--tilt-x", `${y * -2.2}deg`);
+      item.style.setProperty("--tilt-y", `${x * 2.8}deg`);
+    });
+
+    item.addEventListener("pointerleave", () => {
+      item.style.setProperty("--tilt-x", "0deg");
+      item.style.setProperty("--tilt-y", "0deg");
+    });
+  });
+}
 
 if (heroVisual) {
   heroVisual.addEventListener("pointermove", (event) => {
@@ -396,8 +429,8 @@ function openCase(caseId, trigger) {
   caseProjectLink.hidden = !item.projectUrl;
   caseProjectLink.href = item.projectUrl || "#";
   caseProjectLink.textContent = item.projectLabel || "Открыть проект";
-  caseContactLink.classList.toggle("primary", !item.projectUrl);
-  caseContactLink.classList.toggle("ghost", Boolean(item.projectUrl));
+  caseContactLink.classList.toggle("button-solid", !item.projectUrl);
+  caseContactLink.classList.toggle("button-outline", Boolean(item.projectUrl));
   document.body.classList.add("case-open");
   caseDialog.showModal();
   caseDialog.querySelector(".case-close").focus();
@@ -423,4 +456,4 @@ caseDialog?.addEventListener("close", () => {
   lastCaseTrigger?.focus();
 });
 
-animateShadow();
+if (!prefersReducedMotion.matches) animateShadow();
