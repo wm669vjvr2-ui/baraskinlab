@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BARASKIN LAB — три направления редизайна</title>
+    <meta
+      name="description"
+      content="Три визуальных направления нового сайта BARASKIN LAB: коммерческое, студийное и интерактивное."
+    />
+    <meta name="theme-color" content="#f36a1d" />
+    <link rel="icon" type="image/png" href="../assets/baraskin-lab-logo-clean.png" />
+    <link rel="stylesheet" href="styles.css?v=20260724-1" />
+  </head>
+  <body data-concept="clear">
+    <aside class="concept-switcher" aria-label="Выбор концепта">
+      <span>Концепт</span>
+      <button class="switch-button is-active" type="button" data-switch="clear">01</button>
+      <button class="switch-button" type="button" data-switch="studio">02</button>
+      <button class="switch-button" type="button" data-switch="route">03</button>
+    </aside>
+
+    <main>
+      <section class="concept concept-clear" data-view="clear">
+        <header class="clear-nav">
+          <a class="concept-brand" href="#" aria-label="BARASKIN LAB">
+            <img src="../assets/baraskin-lab-logo-clean.png" alt="" />
+            <strong>BARASKIN LAB</strong>
+          </a>
+          <nav aria-label="Навигация концепта 1">
+            <a href="#clear-services">Услуги</a>
+            <a href="#clear-proof">Работы</a>
+            <a href="#clear-process">Как работаем</a>
+          </nav>
+          <a class="clear-nav-cta" href="https://t.me/+79851284487" target="_blank" rel="noopener">Обсудить задачу</a>
+        </header>
+
+        <div class="clear-hero">
+          <div class="clear-copy">
+            <p class="micro-label"><i></i> Сайты и автоматизация для бизнеса</p>
+            <h1>Приводим заявки.<br /><span>Убираем ручную работу.</span></h1>
+            <p class="clear-lead">
+              Лендинг быстро объясняет ценность и ведёт к заявке. Автоматизация не даёт обращениям теряться и освобождает команду от рутины.
+            </p>
+            <div class="clear-actions">
+              <a class="clear-primary" href="https://t.me/+79851284487" target="_blank" rel="noopener">
+                Рассчитать мою задачу
+                <span>↗</span>
+              </a>
+              <a class="clear-secondary" href="#clear-proof">Смотреть живые примеры</a>
+            </div>
+            <div class="clear-trust" id="clear-process">
+              <span><b>01</b> Сначала прототип</span>
+              <span><b>02</b> Понятная цена</span>
+              <span><b>03</b> Запуск по этапам</span>
+            </div>
+          </div>
+
+          <div class="clear-offer" id="clear-services" aria-label="Стартовые услуги и цены">
+            <div class="clear-offer-head">
+              <p>Выберите, с чего начать</p>
+              <span>3 направления</span>
+            </div>
+            <article class="clear-price-card is-featured">
+              <div>
+                <span class="clear-card-number">01</span>
+                <p>Нужно понятно<br />продавать услугу</p>
+              </div>
+              <div class="clear-price">
+                <strong>Лендинг</strong>
+                <span>от 2 000 ₽</span>
+              </div>
+              <b class="clear-arrow">↗</b>
+            </article>
+            <article class="clear-price-card">
+              <div>
+                <span class="clear-card-number">02</span>
+                <p>Теряются заявки<br />и время команды</p>
+              </div>
+              <div class="clear-price">
+                <strong>Автоматизация</strong>
+                <span>от 5 000 ₽</span>
+              </div>
+              <b class="clear-arrow">↗</b>
+            </article>
+            <article class="clear-price-card">
+              <div>
+                <span class="clear-card-number">03</span>
+                <p>Нужна система<br />для отдела</p>
+              </div>
+              <div class="clear-price">
+                <strong>CRM и API</strong>
+                <span>от 15 000 ₽</span>
+              </div>
+              <b class="clear-arrow">↗</b>
+            </article>
+          </div>
+        </div>
+
+        <div class="clear-proof" id="clear-proof">
+          <p>Почему студия</p>
+          <strong>Не просим верить на слово — показываем живые сайты, CRM и прототипы до большого запуска.</strong>
+          <div class="clear-proof-list">
+            <span>12 работ</span>
+            <span>4 живых демо</span>
+            <span>Один контакт для проекта</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="concept concept-studio" data-view="studio" hidden>
+        <header class="studio-nav">
+          <a class="studio-wordmark" href="#">BARASKIN LAB<sup>®</sup></a>
+          <nav aria-label="Навигация концепта 2">
+            <a href="#studio-work">WORK</a>
+            <a href="#studio-services">SERVICES</a>
+            <a href="https://t.me/+79851284487" target="_blank" rel="noopener">CONTACT ↗</a>
+          </nav>
+        </header>
+
+        <div class="studio-hero">
+          <div class="studio-orbit" aria-hidden="true">
+            <div class="studio-halo halo-one"></div>
+            <div class="studio-halo halo-two"></div>
+            <img class="studio-logo" src="../assets/baraskin-lab-logo-clean.png" alt="" />
+            <figure class="studio-shot studio-shot-one">
+              <img src="../assets/portfolio-page-3.png" alt="" />
+              <figcaption>LANDING / 01</figcaption>
+            </figure>
+            <figure class="studio-shot studio-shot-two">
+              <img src="../assets/automation-flow-preview.png" alt="" />
+              <figcaption>AUTOMATION / 02</figcaption>
+            </figure>
+            <figure class="studio-shot studio-shot-three">
+              <img src="../assets/visual-poster.png" alt="" />
+              <figcaption>VISUAL / 03</figcaption>
+            </figure>
+          </div>
+
+          <p class="studio-kicker">DIGITAL STUDIO · SITES · SYSTEMS · VISUALS</p>
+          <h1>
+            Делаем бизнес<br />
+            <span>понятным.</span><br />
+            Процессы —<br />
+            <em>автоматическими.</em>
+          </h1>
+          <div class="studio-bottom">
+            <p>
+              Проектируем сайты и цифровые системы, которые помогают продавать, не терять заявки и быстрее проверять новые идеи.
+            </p>
+            <div class="studio-actions">
+              <a href="#studio-work">Смотреть работы <span>↓</span></a>
+              <a href="https://t.me/+79851284487" target="_blank" rel="noopener">Начать проект <span>↗</span></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="studio-rail" id="studio-services">
+          <div><span>01 / LANDING</span><strong>от 2 000 ₽</strong></div>
+          <div><span>02 / AUTOMATION</span><strong>от 5 000 ₽</strong></div>
+          <div><span>03 / CRM + API</span><strong>от 15 000 ₽</strong></div>
+          <div id="studio-work"><span>04 / LIVE PROOF</span><strong>12 работ ↗</strong></div>
+        </div>
+      </section>
+
+      <section class="concept concept-route" data-view="route" hidden>
+        <header class="route-nav">
+          <a class="route-brand" href="#">
+            <img src="../assets/baraskin-lab-logo-clean.png" alt="" />
+            <span>BARASKIN<br />LAB</span>
+          </a>
+          <div class="route-nav-note">
+            <i></i>
+            Принимаем новые проекты
+          </div>
+          <a class="route-contact" href="https://t.me/+79851284487" target="_blank" rel="noopener">Telegram ↗</a>
+        </header>
+
+        <div class="route-layout">
+          <div class="route-copy">
+            <p class="route-index">03 / ИНТЕРАКТИВНЫЙ МАРШРУТ</p>
+            <h1>Что сейчас<br />мешает бизнесу<br /><span>расти?</span></h1>
+            <p class="route-lead">Выберите главную проблему — покажем первый разумный шаг, стоимость и ожидаемый результат.</p>
+            <div class="pain-list" role="group" aria-label="Выберите проблему">
+              <button class="pain-button is-active" type="button" data-pain="offer">
+                <span>01</span> Клиент не понимает предложение
+              </button>
+              <button class="pain-button" type="button" data-pain="leads">
+                <span>02</span> Заявки теряются между сервисами
+              </button>
+              <button class="pain-button" type="button" data-pain="routine">
+                <span>03</span> Команда делает всё вручную
+              </button>
+              <button class="pain-button" type="button" data-pain="mvp">
+                <span>04</span> Нужно быстро проверить идею
+              </button>
+            </div>
+          </div>
+
+          <div class="route-map">
+            <svg class="route-lines" viewBox="0 0 680 650" fill="none" aria-hidden="true">
+              <path d="M38 78H178C233 78 235 178 292 178H432C493 178 493 278 552 278H644" />
+              <path d="M38 568H168C236 568 224 462 294 462H418C488 462 478 372 550 372H644" />
+              <circle cx="38" cy="78" r="7" />
+              <circle cx="292" cy="178" r="7" />
+              <circle cx="552" cy="278" r="7" />
+              <circle cx="168" cy="568" r="7" />
+              <circle cx="418" cy="462" r="7" />
+              <circle cx="644" cy="372" r="7" />
+            </svg>
+
+            <article class="solution-card">
+              <div class="solution-top">
+                <span>РЕШЕНИЕ / <b id="solution-number">01</b></span>
+                <i>Подходит для старта</i>
+              </div>
+              <p class="solution-pain" id="solution-pain">Клиент не понимает, чем вы отличаетесь и что делать дальше.</p>
+              <h2 id="solution-title">Лендинг с ясным оффером</h2>
+              <p class="solution-text" id="solution-text">
+                Соберём предложение вокруг боли клиента, покажем выгоды и приведём к одному понятному действию.
+              </p>
+              <div class="solution-outcome">
+                <span>Что получите</span>
+                <strong id="solution-outcome">Понятное предложение + адаптивная страница + кнопка заявки</strong>
+              </div>
+              <div class="solution-footer">
+                <div>
+                  <span>СТАРТ</span>
+                  <strong id="solution-price">от 2 000 ₽</strong>
+                </div>
+                <a id="solution-link" href="https://t.me/+79851284487" target="_blank" rel="noopener">
+                  Получить план
+                  <span>↗</span>
+                </a>
+              </div>
+            </article>
+
+            <div class="route-steps" aria-label="Этапы работы">
+              <span>Боль</span><i>→</i><span>Прототип</span><i>→</i><span>Запуск</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js?v=20260724-1"></script>
+  </body>
+</html>
