@@ -113,8 +113,8 @@ const caseData = {
     visual: "image",
     image: "assets/roofing-landing-hero.jpg",
     alt: "Первый экран лендинга кровельной компании",
-    projectUrl: "https://xn----8sbebb7beezgo4b1c0g.xn--p1ai/",
-    projectLabel: "Открыть живой сайт",
+    projectUrl: "assets/roofing-landing-hero.jpg",
+    projectLabel: "Посмотреть экран",
   },
   "ai-video": {
     type: "AI-видео · короткий контент",
@@ -210,7 +210,7 @@ const caseData = {
     visual: "image",
     image: "assets/site-pack-preview.png",
     alt: "Подборка лендингов для бизнеса и экспертов",
-    projectUrl: "https://xn----8sbebb7beezgo4b1c0g.xn--p1ai/",
+    projectUrl: "https://wm669vjvr2-ui.github.io/baraskinlab/",
     projectLabel: "Открыть живой лендинг",
   },
   "lawyer-crm": {

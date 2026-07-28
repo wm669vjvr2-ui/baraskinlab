@@ -1,5 +1,7 @@
 const localHost = ["127.0.0.1", "localhost"].includes(window.location.hostname);
+const staticDemo = window.location.hostname.endsWith("github.io");
 const API_BASE = localHost ? "http://127.0.0.1:8787" : "/baraskin/api";
+const DEMO_STORAGE_KEY = "baraskin-lead-flow-demo";
 
 const apiStatus = document.querySelector("#api-status");
 const leadForm = document.querySelector("#lead-form");
@@ -74,7 +76,21 @@ function renderLeads(leads) {
     .join("");
 }
 
+function getDemoLeads() {
+  try {
+    return JSON.parse(localStorage.getItem(DEMO_STORAGE_KEY) || "[]");
+  } catch {
+    return [];
+  }
+}
+
 async function loadLeads() {
+  if (staticDemo) {
+    renderLeads(getDemoLeads());
+    setApiStatus("online", "Интерактивное демо работает");
+    return;
+  }
+
   try {
     const response = await fetch(`${API_BASE}/leads?limit=8`, { cache: "no-store" });
     if (!response.ok) throw new Error("API недоступен");
@@ -88,6 +104,11 @@ async function loadLeads() {
 }
 
 async function checkHealth() {
+  if (staticDemo) {
+    setApiStatus("online", "Интерактивное демо работает");
+    return;
+  }
+
   try {
     const response = await fetch(`${API_BASE}/health`, { cache: "no-store" });
     if (!response.ok) throw new Error("health check failed");
@@ -109,6 +130,24 @@ leadForm.addEventListener("submit", async (event) => {
   const payload = Object.fromEntries(formData.entries());
 
   try {
+    if (staticDemo) {
+      const lead = {
+        ...payload,
+        id: `BL-${String(Date.now()).slice(-6)}`,
+        created_at: new Date().toISOString(),
+        status: "Новая",
+      };
+      const leads = [lead, ...getDemoLeads()].slice(0, 8);
+      localStorage.setItem(DEMO_STORAGE_KEY, JSON.stringify(leads));
+      completeFlow(flowSteps);
+      resultId.textContent = lead.id;
+      resultCopy.textContent = `${lead.name}, заявка сохранена в демо-журнале.`;
+      setFormMessage("Готово: заявка прошла весь сценарий.", true);
+      leadForm.reset();
+      renderLeads(leads);
+      return;
+    }
+
     const response = await fetch(`${API_BASE}/leads`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
