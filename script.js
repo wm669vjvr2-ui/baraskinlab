@@ -113,8 +113,8 @@ const caseData = {
     visual: "image",
     image: "assets/roofing-landing-hero.jpg",
     alt: "Первый экран лендинга кровельной компании",
-    projectUrl: "assets/roofing-landing-hero.jpg",
-    projectLabel: "Посмотреть экран",
+    projectUrl: "https://krovlya-mo.vercel.app/",
+    projectLabel: "Открыть живой сайт",
   },
   "ai-video": {
     type: "AI-видео · короткий контент",
