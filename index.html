@@ -23,6 +23,7 @@
     <link rel="canonical" href="https://wm669vjvr2-ui.github.io/baraskinlab/" />
     <link rel="icon" type="image/png" href="assets/baraskin-lab-logo-motion.png" />
     <link rel="stylesheet" href="styles.css?v=20260724-2" />
+    <link rel="stylesheet" href="support-demo.css?v=20260924-1" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -126,8 +127,8 @@
         </div>
 
         <div class="hero-rail" aria-label="Факты о студии">
-          <div><span>01 / PORTFOLIO</span><strong>13 работ</strong></div>
-          <div><span>02 / LIVE</span><strong>4 демо</strong></div>
+          <div><span>01 / PORTFOLIO</span><strong>14 работ</strong></div>
+          <div><span>02 / LIVE</span><strong>5 демо</strong></div>
           <div><span>03 / LANDING</span><strong>от 2 000 ₽</strong></div>
           <div><span>04 / AUTOMATION</span><strong>от 5 000 ₽</strong></div>
         </div>
@@ -235,6 +236,17 @@
         </div>
       </section>
 
+      <aside class="trust-note" aria-labelledby="trust-title">
+        <div class="trust-mark" aria-hidden="true">РФ<br /><span>152-ФЗ</span></div>
+        <div>
+          <p class="section-index">ПРОЗРАЧНАЯ РАБОТА</p>
+          <h2 id="trust-title">С учётом закона.<br /><em>С понятными условиями.</em></h2>
+          <p>Разрабатываем сайты и ботов с учётом применимых требований законодательства РФ, в том числе 152-ФЗ «О персональных данных».</p>
+          <p>До старта фиксируем объём работ, стоимость и этапы. Для проектов с персональными данными согласуем, что собираем, где храним и какие согласия нужны.</p>
+          <small>Конкретные требования и юридические документы согласуем под ваш бизнес.</small>
+        </div>
+      </aside>
+
       <section id="works" class="section works">
         <div class="works-heading reveal">
           <div class="section-heading">
@@ -249,7 +261,7 @@
               <button class="work-filter" type="button" data-filter="systems" aria-pressed="false">Системы</button>
               <button class="work-filter" type="button" data-filter="sites" aria-pressed="false">Сайты</button>
             </div>
-            <span class="work-count" id="work-count" aria-live="polite">9 работ</span>
+            <span class="work-count" id="work-count" aria-live="polite">10 работ</span>
           </div>
         </div>
 
@@ -333,6 +345,20 @@
               <h3>Демонтаж</h3>
               <p>Услуги, этапы, расчёт стоимости и заявка в одном понятном сценарии.</p>
               <b>Открыть сайт ↗</b>
+            </div>
+          </button>
+          <button class="work-item support-card reveal" id="support-demo" type="button" data-support-demo data-category="systems" aria-haspopup="dialog" aria-controls="support-dialog">
+            <span class="support-cover" aria-hidden="true">
+              <span class="support-cover-label">SUPPORT / DEMO</span>
+              <span class="support-cover-message support-cover-user">Где мой заказ?</span>
+              <span class="support-cover-message">Уже в пути.<br />Всё под контролем ↗</span>
+              <span class="support-cover-status"><i></i> Ответы без ожидания</span>
+            </span>
+            <div class="work-copy">
+              <span>БОТ ПОДДЕРЖКИ · ИНТЕРАКТИВНОЕ ДЕМО</span>
+              <h3>На связи</h3>
+              <p>Отвечает на частые вопросы и показывает, как подключается оператор. Можно потыкать.</p>
+              <b>Попробовать бота ↗</b>
             </div>
           </button>
         </div>
@@ -472,6 +498,46 @@
       </div>
     </dialog>
 
+    <dialog class="support-dialog" id="support-dialog" aria-labelledby="support-title" aria-describedby="support-description">
+      <div class="support-toolbar">
+        <span>BARASKIN LAB / ИНТЕРАКТИВНОЕ ДЕМО</span>
+        <button type="button" class="support-close" aria-label="Закрыть демо бота">×</button>
+      </div>
+      <div class="support-layout">
+        <div class="support-intro">
+          <p class="section-index">БОТ ТЕХПОДДЕРЖКИ</p>
+          <h2 id="support-title">Всегда<br /><em>на связи.</em></h2>
+          <p id="support-description">Пример поддержки вымышленного магазина. Выберите вопрос или напишите свой — бот ответит по готовому сценарию.</p>
+          <ol class="support-steps">
+            <li>Спросите про доставку или оплату.</li>
+            <li>Проверьте учебный заказ <strong>1042</strong> или <strong>1043</strong>.</li>
+            <li>Посмотрите сценарий обращения к оператору.</li>
+          </ol>
+          <p class="support-disclaimer">Это демо: реальных заказов и оператора здесь нет. Для вашего бизнеса подключим ваши ответы и нужные сервисы отдельным этапом.</p>
+          <a class="button button-outline" href="https://t.me/skinyabaraban" target="_blank" rel="noopener">Хочу такого бота ↗</a>
+        </div>
+        <div class="support-chat">
+          <div class="support-chat-header">
+            <span class="support-avatar" aria-hidden="true">B</span>
+            <div><strong>Бот поддержки</strong><span>Учебный магазин · сценарное демо</span></div>
+            <button type="button" id="support-reset">Сначала ↺</button>
+          </div>
+          <div class="support-messages" id="support-messages" role="log" aria-label="Переписка с демо-ботом" aria-live="polite" aria-relevant="additions" tabindex="0"></div>
+          <p class="support-typing" id="support-typing" role="status"></p>
+          <div class="support-suggestions" id="support-suggestions" aria-label="Готовые вопросы"></div>
+          <form class="support-form" id="support-form" novalidate>
+            <label for="support-input">Ваше сообщение</label>
+            <div class="support-input-row">
+              <input id="support-input" type="text" maxlength="500" autocomplete="off" placeholder="Например: где мой заказ?" aria-describedby="support-privacy support-error" />
+              <button type="submit" id="support-send">Отправить ↗</button>
+            </div>
+            <p class="support-error" id="support-error" role="alert"></p>
+            <p class="support-privacy" id="support-privacy">Не вводите личные данные. Сообщения никуда не отправляются и очищаются при закрытии демо.</p>
+          </form>
+        </div>
+      </div>
+    </dialog>
+
     <div class="floating-contact" aria-label="Быстрая связь">
       <a
         href="https://t.me/skinyabaraban?text=%D0%9F%D1%80%D0%B8%D0%B2%D0%B5%D1%82%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BA%D0%B8%D0%BD%D1%83%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83."
@@ -482,5 +548,6 @@
     </div>
 
     <script src="script.js?v=20260724-2"></script>
+    <script src="support-demo.js?v=20260924-1"></script>
   </body>
 </html>
