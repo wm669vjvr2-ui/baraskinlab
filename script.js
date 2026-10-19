@@ -19,6 +19,28 @@ const tiltItems = document.querySelectorAll("[data-tilt]");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 const caseData = {
+  reelroom: {
+    type: "Python · FastAPI · студия короткого контента",
+    title: "REELROOM",
+    summary:
+      "Портфолио-приложение для авторов коротких видео: собирает референсы в библиотеку, создаёт шаблон адаптации и помогает довести историю до сценария. В кейсе — реальные экраны работающего Python-прототипа; интерактивная версия пока запускается локально.",
+    metrics: [
+      ["FastAPI", "серверная логика"],
+      ["SQLite", "сохранение материалов"],
+    ],
+    list: [
+      "Библиотека референсов с поиском и избранным",
+      "Remix: шаблон с хуком, основной частью и действием",
+      "Редактор с сохранением, экспортом и статусом сценария",
+      "Импорт JSON с проверкой и защитой от дубликатов",
+      "Отдельные демо-студии, экспорт и удаление своих данных",
+    ],
+    visual: "image",
+    image: "assets/reelroom-desktop.webp",
+    alt: "Рабочий интерфейс REELROOM в стиле режиссёрской доски",
+    projectUrl: "projects/reelroom/",
+    projectLabel: "Посмотреть кейс REELROOM",
+  },
   "lead-radar": {
     type: "AI-агент · Telegram · CRM",
     title: "Lead Radar",
